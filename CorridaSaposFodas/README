@@ -1,0 +1,4 @@
+By: Jonathan Freitas Ferreira
+
+Program in Java that uses Threads to create 10 random numbers that are see as "frogs", and another Thread to put these "frogs" in a race
+and print the number of the winner.
