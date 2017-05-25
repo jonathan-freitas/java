@@ -1,0 +1,3 @@
+By: Jonathan Freitas Ferreira
+
+Program in Java that uses Threads to read a .CSV file and count the frequency of each word in that file.
