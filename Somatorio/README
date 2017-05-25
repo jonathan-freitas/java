@@ -1,0 +1,7 @@
+By: Jonathan Freitas Ferreira
+
+Program in Java that uses Threads to:
+
+-> Create a list.
+-> Populate the list with random numbers.
+-> Count all the numbers within the list and add to a total.
