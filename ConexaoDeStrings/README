@@ -1,0 +1,3 @@
+By: Jonathan Freitas Ferreira
+
+Program in Java that uses Sockets to send a message via String, alter it and send it back to the Client.
