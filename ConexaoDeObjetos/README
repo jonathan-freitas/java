@@ -1,0 +1,5 @@
+By: Jonathan Freitas Ferreira
+
+Program in Java that uses Sockets to send an object "Person" with 2 fields: Name and Date of Birth.
+The other end will receive this object, and calculate the Person's age using the field "Date of Birth", and then send the object back
+to the Client.
