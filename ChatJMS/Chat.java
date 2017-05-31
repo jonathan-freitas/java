@@ -27,13 +27,16 @@ public class Chat implements MessageListener {
         // Obtem os dados da conexao JNDI atraves 
 		// do arquivo jndi.properties
         InitialContext ctx = new InitialContext();
+
         // O cliente utiliza o TopicConnectionFactory 
 		// para criar um objeto do tipo
 		// TopicConnection com o provedor JMS
         TopicConnectionFactory conFactory = (TopicConnectionFactory) ctx.lookup(topicFactory);
+
         // Utiliza o TopicConnectionFactory para criar 
 		//a conexao com o provedor JMS
         TopicConnection connection = conFactory.createTopicConnection();
+
         // Utiliza o TopicConnection para criar a sessao para o produtor
         // Atributo false -> uso ou nao de transacoes (tratar uma serie de
 		// envios/recebimentos como unidade atomica e controla-la via commit e rollback)
@@ -47,6 +50,7 @@ public class Chat implements MessageListener {
 			
         // Pesquisa o destino do topico via JNDI
         Topic chatTopic = (Topic) ctx.lookup(topicName);
+
         // Cria o topico JMS do produtor das mensagens 
 		// atraves da sessao e o nome do topico
         TopicPublisher publisher = 
@@ -56,14 +60,17 @@ public class Chat implements MessageListener {
 		// mensagens atraves da sessao e o nome do topico
         TopicSubscriber subscriber = 
 			subSession.createSubscriber(chatTopic);
+
         // Escuta o topico para receber as mensagens 
 		// atraves do metodo onMessage()
         subscriber.setMessageListener(this);
+
         // Inicializa as variaveis do Chat
         this.connection = connection;
         this.pubSession = pubSession;
         this.publisher = publisher;
         this.username = username;
+        
         // Inicia a conexao JMS, permite que 
 		// mensagens sejam entregues
         connection.start();
@@ -105,8 +112,10 @@ public class Chat implements MessageListener {
 
             System.out.print("Digite seu nome: ");
             String name = commandLine.nextLine();
+
             // Faz uma chamada ao construtor da classe para iniciar o chat
             Chat chat = new Chat("TopicCF", "topicChat", name);
+
             // Depois da conexao criada, 
 			// faz um loop para enviar mensagens
             while (true) {
@@ -129,3 +138,4 @@ public class Chat implements MessageListener {
         }
     }
 }
+
